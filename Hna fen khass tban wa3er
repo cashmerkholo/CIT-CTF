@@ -13,6 +13,6 @@ function onAnswer(answer) {
     send({
         type: "ready" // here is the last function handling connection between peers and does not affect any member [==> C*I*T{M13liKcH_R1K_NAdI(a)} ] {without *}
     });
-
+```
 
 The flag is CIT{M13liKcH_R1K_NAdI(a)}
