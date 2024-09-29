@@ -1,0 +1,51 @@
+This one was a pretty interesting challenge. a 260 pts challenge. We downloaded a JPEG image named ideh2.jpg.
+( at first I thought maybe i should be digging to dates, when the image was accessed/modified etc ..)
+
+Step 1: Check the metadata
+
+First thing I did was run exiftool on the image to see if there was anything hidden in the metadata:
+```bash
+jkome0x@44-03-2C-69-F0-32:~/Downloads$ exiftool ideh2.jpg
+ExifTool Version Number         : 12.76
+File Name                       : ideh2.jpg
+Directory                       : .
+File Size                       : 472 kB
+File Modification Date/Time     : 2024:09:28 23:20:39+01:00
+File Access Date/Time           : 2024:09:29 11:14:44+01:00
+File Inode Change Date/Time     : 2024:09:29 11:14:44+01:00
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : None
+X Resolution                    : 72
+Y Resolution                    : 72
+Comment                         : tbarklah 3lik albatal(a)
+Image Width                     : 1440
+Image Height                    : 1800
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 1440x1800
+Megapixels                      : 2.6
+
+As you can see the comment in the metadata:
+tbarklah 3lik albatal(a)
+a nice little boost, but nothing that gave me the flag yet. Thanks whoever created this hahaha
+
+Step 2: Steganography
+
+Given the image, I figured there might be more hidden data. So, I used steghide to see if anything was embedded in the image file:
+
+```bash
+jkome0x@44-03-2C-69-F0-32:~/Downloads$ steghide extract -sf ideh2.jpg
+Enter passphrase: 
+wrote extracted data to "flag.txt".
+
+Once I entered the passphrase (which I left empty ), I was able to extract the hidden data into a file called flag.txt.
+
+Step 3: The hint
+
+Now all we had to do is read the flag.txt file, using the cat command we got :  CIT{DaT3_Is_13_14_JaNvI3E4}
