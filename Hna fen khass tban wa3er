@@ -1,0 +1,18 @@
+ThisThis one got me scared at first. It was a 300-point challenge, and the reason I wasn't confident was because of the description: "JAVA." Believe me, who wouldn't be scared of Java as a beginner? Even senior devs avoid it when handling the back-end or server side!
+
+I'm not sure who created this challenge, but they sure played a prank on me. Later, I discovered it was just JavaScript! And to my surprise, the flag wasn’t even hidden in some complex function manipulation. It was in plain text. All you had to do was read through the `main.js` file, and bingo:
+
+```javascript
+/**
+ * This function will handle when another user answers to our offer.
+ */
+function onAnswer(answer) {
+    console.log("when another user answers to offer => answer = " + answer);
+    document.getElementById('dynamic_progress_text').setAttribute('data-loading-text', "Waiting for an answer from the user..Please wait ..");
+    peerConnection.setRemoteDescription(new RTCSessionDescription(answer));
+    send({
+        type: "ready" // here is the last function handling connection between peers and does not affect any member [==> C*I*T{M13liKcH_R1K_NAdI(a)} ] {without *}
+    });
+
+
+The flag is CIT{M13liKcH_R1K_NAdI(a)}
