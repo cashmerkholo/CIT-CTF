@@ -1,0 +1,6 @@
+this is a 100pts challenge :
+we downloaded the text file and it has "UTBsVWUwdzNRVTFCUVRsZlNHRkJaR0Y5DQo"
+128 is a hint, the first thing I thought of is that is encrypted twice using base64 , to my luck, that was the case !
+UTBsVWUwdzNRVTFCUVRsZlNHRkJaR0Y5DQo ===> Q0lUe0w3QU1BQTlfSGFBZGF9
+Q0lUe0w3QU1BQTlfSGFBZGF9            ===> CIT{L7AMAA9_HaAda}
+and that is our flag there !
