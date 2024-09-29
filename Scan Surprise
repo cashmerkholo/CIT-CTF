@@ -1,0 +1,26 @@
+This one is a 250-point challenge. Although it seems to fall under the steganography category, there wasn’t really any hidden data.
+
+To solve this:
+
+1. Download and unzip the `chalenge_6.rar` file.
+2. There were a bunch of files. The path where the real game starts is:  
+   `/home/jkome0x/Downloads/chalenge 6/cit/the_moon/home`
+3. Use the `ls` command to list the directory contents. You'll find a file named `checksum.txt` and another directory called `files` with a bunch of other files—most of them are ASCII text.
+
+How did I know this?
+
+You can use the following command to check the file types:
+
+```bash
+file *
+The most suspicious one was the PNG image file 134hi!67.png. It turned out to be a QR code, so we scanned it and got this link:
+https://qrco.de/bfRAuT
+
+The link led to a PDF file, and its contents were:
+______________________
+iwa 3la slaaammaa:
+CIT{a7s@en_Ha1cC@ker}
+______________________
+And that was obviously our flag: CIT{a7s@en_Ha1cC@ker}.
+
+This is why I said I’m not sure it was steganography, I really don’t understand the objective of this one!
