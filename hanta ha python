@@ -1,0 +1,35 @@
+this was a 100 pts challenge, we download the file reverseme.py:
+"
+import hashlib
+import base64
+
+def check_password(password):
+    correct_hash = "7d8daa9f99e4153cd6cda195916834c0"
+    password_hash = hashlib.md5(password.encode()).hexdigest()
+
+    if password_hash == correct_hash:
+        print("Access Granted!")
+        print(f"Here's your flag: {generate_flag(password)}")
+    else:
+        print("Access Denied! Try again.")
+
+def generate_flag(password):
+    secret_key = "secret_key_part"
+    flag = f"CIT{{{password}_{secret_key}}}"
+    return base64.b64encode(flag.encode()).decode()
+
+if __name__ == "__main__":
+    user_password = "password"
+    check_password(user_password)
+"
+Reading through the code, we quickly understood how it worked. The correct_hash value was given as 7d8daa9f99e4153cd6cda195916834c0, which we recognized as an MD5 hash. We ran it through an online MD5 decrypter and found the result:
+7d8daa9f99e4153cd6cda195916834c0 : bizu
+
+At this point, it all started falling into place. Instead of the placeholder "password", we substituted "bizu".
+
+After running the modified reverseme.py, we got the following output:
+we run the modefied reverse_me.py : Access Granted!
+Here's your flag: Q0lUe2JpenVfc2VjcmV0X2tleV9wYXJ0fQ==
+
+This was clearly base64-encoded, so after decoding, we got:  CIT{bizu_secret_key_part}
+Bingo ! flag captured !
